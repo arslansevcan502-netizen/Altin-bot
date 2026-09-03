@@ -5,6 +5,9 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -14,3 +17,10 @@ jobs:
       - run: python check_gold.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      - name: Save price history
+        run: |
+          git config user.name "altin-bot"
+          git config user.email "actions@github.com"
+          git add last_price.json
+          git diff --staged --quiet || git commit -m "fiyat guncelle"
+          git push
