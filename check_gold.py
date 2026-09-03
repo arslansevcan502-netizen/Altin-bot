@@ -9,7 +9,7 @@ gram_altin = data["gram-altin"]
 alis = gram_altin["Alış"]
 satis = gram_altin["Satış"]
 
-mesaj = f"Gram Altın\nAlış: {alis} TL\nSatış: {satis} TL"
+mesaj = f"Gram Altin\nAliş: {alis} TL\nSatış: {satis} TL"
 
 requests.post(
     f"https://ntfy.sh/{TOPIC}",
