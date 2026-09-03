@@ -14,5 +14,5 @@ mesaj = f"Gram Altın\nAlış: {alis} TL\nSatış: {satis} TL"
 requests.post(
     f"https://ntfy.sh/{TOPIC}",
     data=mesaj.encode("utf-8"),
-    headers={"Title": "Altın Fiyatı"}
+    headers={"Title": "Altin Fiyati"}
 )
