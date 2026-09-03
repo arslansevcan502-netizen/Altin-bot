@@ -13,10 +13,10 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 resp = requests.get(url, headers=headers, timeout=15)
 html = resp.text
 
-# "Gram Altin" satirindaki alis/satis degerlerini bul
-# Ornek satir: Gram Altin ... 12:02:02 | 6599.05 | 6694.33 ...
+# "kapalicarsi/gram-altin" linkinin gectigi satirdaki alis/satis degerlerini bul
+# Turkce "i/ı" karakter sorunu olmasin diye link adresine (URL) gore ariyoruz
 match = re.search(
-    r"Gram Altin.{0,80}?(\d{3,5}\.\d{2}).{0,50}?(\d{3,5}\.\d{2})",
+    r"kapalicarsi/gram-altin.{0,300}?(\d{3,5}\.\d{2}).{0,100}?(\d{3,5}\.\d{2})",
     html, re.S | re.I
 )
 
